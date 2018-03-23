@@ -138,20 +138,65 @@ var exponent = function(base, exp) {
 // powerOfTwo(1); // true
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
-var powerOfTwo = function(n) {};
+var powerOfTwo = function(n) {
+    // base case
+    if (n === 1) {
+      return true;
+    }
+
+    if (n < 1) {
+      return false;
+    }
+    // recursive case
+    return powerOfTwo (n / 2);
+};
 
 // 9. Write a function that reverses a string.
-var reverse = function(string) {};
+var reverse = function(string) {
+  // set counter
+  // var counter = string.length;
+
+  // return function() {
+  //   counter --;
+  //   var last = string[string.length - 1];
+  //   string = last.concat(string.slice(0, -1))
+  //   if (counter === 0) {
+  //     return string;
+  //   }
+  //   return reverse(string);
+  // }
+};
 
 // 10. Write a function that determines if a string is a palindrome.
-var palindrome = function(string) {};
+var palindrome = function(string) {
+  string = string.toLowerCase();
+  // base case
+  if (string.length === 0 || string.length === 1) {
+    return true;
+  }
+  if (string[0] !== string[string.length - 1]) {
+    return false;
+  }
+  // recursive case
+  string = string.slice(1, -1);
+  return palindrome(string);
+};
 
 // 11. Write a function that returns the remainder of x divided by y without using the
 // modulo (%) operator.
 // modulo(5,2) // 1
 // modulo(17,5) // 2
 // modulo(22,6) // 4
-var modulo = function(x, y) {};
+var modulo = function(x, y) {
+  if (y === 0) {
+    return NaN;
+  }
+  if (x - y < y) {
+    return x - y;
+  } else {
+   return modulo(x - y, y) 
+  }
+};
 
 // 12. Write a function that multiplies two numbers without using the * operator or
 // Math methods.
